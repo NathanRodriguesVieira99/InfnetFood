@@ -1,29 +1,43 @@
+import { useState, useEffect } from 'react';
 import 'react-native-gesture-handler';
-import {
-  useFonts,
-  Montserrat_400Regular,
-  Montserrat_500Medium,
-  Montserrat_700Bold
-} from '@expo-google-fonts/montserrat';
-import { Text } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
+import { NavigationContainer } from '@react-navigation/native';
+import { ThemeProvider} from './src/contexts/ThemeContext';
+import { useCustomFonts } from './src/styles/fonts/fonts';
 
-import Routes from './src/routes'
+import Splash from './src/screens/Splash';
+import Routes from './src/routes';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [fontesLoaded] = useFonts({
-    Montserrat_400Regular,
-    Montserrat_500Medium,
-    Montserrat_700Bold,
-  });
+  const [isSplashVisible, setIsSplashVisible] = useState(true);
 
-  if (!fontesLoaded) {
-    return (
-      <Text>Loading secundario....</Text>
-    );
-  }
+
+  const [fontesLoaded] = useCustomFonts();
+
+  useEffect(() => {
+    const prepareApp = async () => {
+      await new Promise(resolve => setTimeout(resolve, 3000));  // Tempo de splash
+      setIsSplashVisible(false);
+      SplashScreen.hideAsync();
+    };
+
+    if (fontesLoaded) {
+      prepareApp();
+    }
+  }, [fontesLoaded]);
 
   return (
-    <Routes />
+    <NavigationContainer>
+      <ThemeProvider>
+        {isSplashVisible ? (
+          <Splash />
+
+        ) : (
+          <Routes />
+        )}
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }
-

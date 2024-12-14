@@ -1,25 +1,40 @@
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { NavigationContainer } from '@react-navigation/native';
+
 
 import Splash from '../screens/Splash';
 import Login from '../screens/Login';
 import Home from '../screens/Home';
 
 
+Stack = createStackNavigator();
 Tab = createBottomTabNavigator();
 
 
-export default function Routes() {
-
+function BottomTabs() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator screenOptions={{
+    <Tab.Navigator>
+      <Tab.Screen name='Home' component={Home} />
+    </Tab.Navigator>
+  );
+}
 
-      }}>
-        <Tab.Screen name='Home' component={Home} options={{
+export default function Routes() {
+  return (
+  
+      <Stack.Navigator
+        initialRouteName='Splash'
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name='Splash' component={Splash} />
+        <Stack.Screen name='Login' component={Login} />
+        <Stack.Screen
+          name='BottomTabs'
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
 
-        }} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  )
+  );
 }
