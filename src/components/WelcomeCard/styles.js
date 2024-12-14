@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   welcome: {
-    marginTop: 5,
+    marginTop: 70,
   },
   title: {
     fontSize: 25,

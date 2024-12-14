@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
+export const createStyles = (currentTheme) => StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    backgroundColor: 'steelblue'
+    backgroundColor: currentTheme.background
   }
 })

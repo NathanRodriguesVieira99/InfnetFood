@@ -1,11 +1,8 @@
 import { Text, View } from 'react-native';
+import { Categories } from '../../components/Categories';
 
 export default function Home() {
   return (
-    <View>
-      <Text>
-        HomeScreen
-      </Text>
-    </View>
+      <Categories />
   );
 }
