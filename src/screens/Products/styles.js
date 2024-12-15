@@ -15,7 +15,7 @@ export const createStyles = (currentTheme) => StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-    marginBottom: 15,
+    marginBottom: 45,
   },
   card: {
     justifyContent: 'center',

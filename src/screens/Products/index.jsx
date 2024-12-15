@@ -21,8 +21,8 @@ export default function Products({ route }) {
                 <Image
                   source={item.imagem}
                   style={{
-                    width: 90,
-                    height: 90
+                    width: 100,
+                    height: 190
                   }}
                 />
                 <Text style={styles.name}>
