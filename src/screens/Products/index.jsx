@@ -1,53 +1,45 @@
-import { Text, View, FlatList, Image } from "react-native";
-
-const productsData = {
-  Cigarros: [
-    {
-      id: '1',
-      nome: 'Marlboro',
-      price: 5.99,
-      // imagem: require('')
-    },
-    {
-      id: '2',
-      nome: 'Lucky Strike',
-      price: 2.00,
-      // imagem: require('')
-    },
-    {
-      id: '3',
-      nome: '',
-      price: 2.00,
-      // imagem: require('')
-    },
-  ],
-  Bebidas: [],
-  Lanches: [],
-  Mexicana: [],
-  Japonesa: []
-}
-
+import { Text, View, FlatList, Image, TouchableOpacity } from "react-native";
+import { createStyles } from "./styles";
+import { useTheme } from "../../contexts/ThemeContext";
+import { productsData } from "../../data/products";
 
 export default function Products({ route }) {
   const { category } = route.params
   const products = productsData[category] || []
 
+  const { currentTheme } = useTheme()
+  const styles = createStyles(currentTheme)
+
   return (
-    <View>
-      <Text> Produtos da categoria {category}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}> Produtos da categoria {category}</Text>
       <FlatList data={products}
         renderItem={({ item }) => (
-          <View>
-            <Image />
-            <Text>
-
-            </Text>
-            <Text>
-
-            </Text>
+          <View style={styles.productCard}>
+            <View style={styles.card}>
+              <TouchableOpacity>
+                <Image
+                  source={item.imagem}
+                  style={{
+                    width: 90,
+                    height: 90
+                  }}
+                />
+                <Text style={styles.name}>
+                  {item.nome}
+                </Text>
+                <Text style={styles.price}>
+                  R$: {item.price}
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
+        numColumns={3}
+        columnWrapperStyle={{ justifyContent: 'space-between' }}
+        contentContainerStyle={{ paddingBottom: 10 }}
         keyExtractor={(item, index) => index.toString()}
+
       />
     </View>
   )

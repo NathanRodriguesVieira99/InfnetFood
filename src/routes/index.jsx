@@ -9,43 +9,55 @@ import Profile from '../screens/Profile';
 import Products from '../screens/Products';
 import Configurations from '../screens/Configurations';
 
+
 import { useTheme } from '../contexts/ThemeContext';
 
 Stack = createStackNavigator();
 Tab = createBottomTabNavigator();
 
 
+
+const HomeStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='Home' component={Home} />
+      <Stack.Screen name="Products" component={Products} options={{
+        headerShown: true, title: '', 
+      }} />
+    </Stack.Navigator>
+  );
+};
+
+
+
 function BottomTabs() {
   const { currentTheme } = useTheme();
-
-
 
   return (
     <Tab.Navigator screenOptions={{
       headerShown: false,
       tabBarStyle: { backgroundColor: currentTheme.tabBackground },
-      // tabBarInactiveTintColor: { color: '#00BFFF' },
-      // tabBarActiveTintColor: { color: '#00CED1' },
       tabBarLabelStyle: { fontSize: 11, fontFamily: 'Montserrat_700Bold' }
     }}>
-      <Tab.Screen name='Home' component={Home} options={{
-        tabBarIcon: ({ color, size, focused }) => (
+      <Tab.Screen name='Home' component={HomeStack} options={{
+        tabBarIcon: ({ size, focused }) => (
           <Feather name='home' color={focused ? '#cacaca' : '#000000'} size={size} />
         ), title: ''
       }} />
       <Tab.Screen name='Perfil' component={Profile} options={{
-        tabBarIcon: ({ color, size, focused }) => (
+        tabBarIcon: ({ size, focused }) => (
           <Feather name='user' color={focused ? '#cacaca' : '#000000'} size={size} />
         ), title: ''
       }} />
       <Tab.Screen name='Configuracoes' component={Configurations} options={{
-        tabBarIcon: ({ color, focused, size }) => (
+        tabBarIcon: ({ focused, size }) => (
           <Feather name='settings' color={focused ? '#cacaca' : '#000000'} size={size} />
         ), title: ''
       }} />
     </Tab.Navigator>
   );
 }
+
 
 export default function Routes() {
   return (
@@ -62,7 +74,10 @@ export default function Routes() {
         component={BottomTabs}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name='Products' component={Products} />
+      <Stack.Screen name='Products' component={Products} options={{
+        headerShown: true,
+        title: ''
+      }} />
     </Stack.Navigator>
 
   );

@@ -1,14 +1,16 @@
 import { FlatList, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useNavigation } from '@react-navigation/native';
-import { createStyles } from './styles'
+import { createStyles } from './styles';
 
-export const CategoriaCard = ({ nome, imagem }) => {
+
+export const CategoriaCard = ({ nome, imagem, onPress }) => {
   const { currentTheme } = useTheme();
   const styles = createStyles(currentTheme);
+
   return (
     <View style={styles.containerCategoria}>
-      <TouchableOpacity style={styles.cardContainer}>
+      <TouchableOpacity style={styles.cardContainer} onPress={onPress}>
         <Image source={imagem} style={styles.img} />
         <Text style={styles.name}>
           {nome}
@@ -17,6 +19,7 @@ export const CategoriaCard = ({ nome, imagem }) => {
     </View>
   );
 };
+
 
 export const Categories = () => {
   const categorias = [
@@ -28,16 +31,15 @@ export const Categories = () => {
     { id: '6', nome: 'Japonesa', imagem: require('../../assets/categories/japonesa.jpg') },
   ];
 
-
-  const navigation = useNavigation()
-
-  const onPress = () => {
-    navigation.navigate('Products', { category: categoryName })
-  }
-
-
   const { currentTheme } = useTheme();
   const styles = createStyles(currentTheme);
+
+  const navigation = useNavigation(); 
+
+
+  const handlePress = (categoryName) => {
+    navigation.navigate('Products', { category: categoryName });
+  };
 
   return (
     <View style={styles.Odin}>
@@ -50,11 +52,10 @@ export const Categories = () => {
           <CategoriaCard
             nome={item.nome}
             imagem={item.imagem}
-            onPress={() => onPress(item.nome)}
+            onPress={() => handlePress(item.nome)} 
           />
         )}
         keyExtractor={(item) => item.id}
-        // numColumns={1}
         showsVerticalScrollIndicator={false}
       />
     </View>
