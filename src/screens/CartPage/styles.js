@@ -19,7 +19,7 @@ export const createStyles = (currentTheme) => StyleSheet.create({
     height: 80
   },
   NameAndQuantity: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   price: {
     textAlign: 'center'
@@ -33,6 +33,6 @@ export const createStyles = (currentTheme) => StyleSheet.create({
     marginLeft: '25%',
     borderRadius: 50,
     fontFamily: 'Montserrat_700Bold',
-    padding: 5
+    padding: 5,
   }
 })
