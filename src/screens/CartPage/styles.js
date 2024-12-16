@@ -34,5 +34,6 @@ export const createStyles = (currentTheme) => StyleSheet.create({
     borderRadius: 50,
     fontFamily: 'Montserrat_700Bold',
     padding: 5,
+    color: currentTheme.text
   }
 })
