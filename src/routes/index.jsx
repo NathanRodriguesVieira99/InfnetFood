@@ -10,6 +10,7 @@ import Products from '../screens/Products';
 import Configurations from '../screens/Configurations';
 import Orders from '../screens/Orders';
 import Checkout from '../screens/Checkout'
+import CartPage from '../screens/CartPage';
 
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -26,6 +27,9 @@ const HomeStack = () => {
         options={{
           headerShown: true, title: '',
         }} />
+      <Stack.Screen name='Cart' component={CartPage} options={{
+        headerShown: true, title: 'Seu carrinho'
+      }} />
     </Stack.Navigator>
   );
 };

@@ -43,5 +43,24 @@ export const createStyles = (currentTheme) => StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
     marginTop: 5,
-  }
+  },
+  btnContainer: {
+    paddingHorizontal: -10,
+
+  },
+  cartIcon: {
+    marginLeft: '80%',
+    gap: 30
+  },
+  numberCart: {
+    backgroundColor: currentTheme.background,
+    borderRadius: 100,
+    padding: 3,
+    width: 30,
+
+  },
+  numberCartIcon: {
+    textAlign: 'center',
+    fontSize: 15,
+  },
 })

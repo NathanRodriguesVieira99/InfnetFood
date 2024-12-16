@@ -1,6 +1,10 @@
-import { Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ProfilePic from '../../assets/profile/kkkk.jpg'
+import { createStyles } from "./styles";
+import { useTheme } from "../../contexts/ThemeContext";
+
 
 export default function Profile() {
   const [username, setUsername] = useState('');
@@ -19,12 +23,23 @@ export default function Profile() {
       }
     };
 
-    getUser(); 
+    getUser();
   }, []);
 
+  const { currentTheme } = useTheme()
+  const styles = createStyles(currentTheme)
+
+  const fakeEmail = 'gorila_da_silva@gmail.com';
+
   return (
-    <View>
-      <Text>Bem-vindo {username}</Text>
+    <View style={styles.container}>
+      <Image source={ProfilePic} style={{
+        borderRadius: 50,
+        width: 110,
+        height: 110
+      }} />
+      <Text style={styles.nome}>Bem-vindo {username}</Text>
+      <Text style={styles.email}>Seu email é: {fakeEmail}</Text>
     </View>
   );
 }
