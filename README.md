@@ -23,11 +23,10 @@
 1. **Clone este repositório**:
    ```bash
    git clone https://github.com/seuusuario/InfnetFood.git
-```
 
 2. **entre na pasta do projeto:**:
  ```bash
-  npm install
+cd infnetfood
 ```
 
 3. **Instale as dependências:**:
