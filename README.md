@@ -7,9 +7,8 @@
 - **Navegação entre diversas telas**
 - **Armazenamento do nome do usuário com AsyncStorage**
 - **Tela de loading com animação**
-![Tela de Carregamento](./src/assets/prints_README/print4.png)
 - **Tela de Login**
-![Tela de Login](./src/assets/prints_README/print5.png)
+
 
 
 
@@ -46,6 +45,10 @@ cd infnetfood
 
 
 ## Algumas imagens do projeto
+
+![Tela de Carregamento](./src/assets/prints_README/print4.png)
+
+![Tela de Login](./src/assets/prints_README/print5.png)
 
 ![Tela de inicio](./src/assets/prints_README/print1.png)
 
