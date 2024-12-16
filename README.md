@@ -23,19 +23,17 @@
 1. **Clone este repositório**:
    ```bash
    git clone https://github.com/seuusuario/InfnetFood.git
-
-  
-2. **Entre na pasta do projeto**:
-
+   
  cd InfnetFood
 
-  
-3. **Instale as dependências:**:
 
+  
+2. **Instale as dependências:**:
+ ```bash
   npm install
 
-4. **Inicie o projeto**:
-
+3. **Inicie o projeto**:
+ ```bash
   npx expo start
 
 
