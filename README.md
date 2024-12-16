@@ -26,7 +26,7 @@
 
   
 2. **Entre na pasta do projeto**:
- 
+ ```powershell
  cd InfnetFood
 
   
