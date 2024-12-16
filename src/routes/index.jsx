@@ -11,6 +11,9 @@ import Configurations from '../screens/Configurations';
 import Orders from '../screens/Orders';
 import Checkout from '../screens/Checkout'
 import CartPage from '../screens/CartPage';
+import Restaurants from '../components/Restaurants';
+import RestaurantDetails from '../screens/RestaurantsDetails';
+
 
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -34,6 +37,20 @@ const HomeStack = () => {
   );
 };
 
+
+
+const RestaurantStack = () => {
+  return (
+    <Stack.Navigator initialRouteName="Restaurants" screenOptions={{
+      headerShown: false
+    }}>
+      <Stack.Screen name="Restaurants" component={Restaurants} />
+      <Stack.Screen name="RestaurantDetails" component={RestaurantDetails} options={{
+        headerShown: true, title: ''
+      }} />
+    </Stack.Navigator>
+  );
+}
 
 
 function BottomTabs() {
@@ -62,11 +79,11 @@ function BottomTabs() {
         }}
       />
       <Tab.Screen
-        name='Pedidos'
-        component={Orders}
+        name='RestaurantStack'
+        component={RestaurantStack}
         options={{
-          tabBarIcon: ({ focused, size }) => (
-            <Feather name='shopping-bag' color={focused ? '#cacaca' : '#000000'} size={size} />
+          tabBarIcon: ({ size, focused }) => (
+            <Feather name='life-buoy' color={focused ? '#cacaca' : '#000000'} size={size} />
           ),
           title: '',
         }}
@@ -77,6 +94,16 @@ function BottomTabs() {
         options={{
           tabBarIcon: ({ focused, size }) => (
             <Feather name='check' color={focused ? '#cacaca' : '#000000'} size={size} />
+          ),
+          title: '',
+        }}
+      />
+      <Tab.Screen
+        name='Pedidos'
+        component={Orders}
+        options={{
+          tabBarIcon: ({ focused, size }) => (
+            <Feather name='shopping-bag' color={focused ? '#cacaca' : '#000000'} size={size} />
           ),
           title: '',
         }}

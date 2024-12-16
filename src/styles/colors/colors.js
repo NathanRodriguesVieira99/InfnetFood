@@ -4,7 +4,10 @@ export const lightTheme = {
   text: '#000000',
   primary: '#000080',
   secondary: '#0000ff',
-
+  cardBackground: '#cacaca',
+  statusCancel: '#ff0000',
+  statusOk: '#32cd32',
+  statusOnWay: '#fff000'
 };
 
 export const darkTheme = {
@@ -13,4 +16,8 @@ export const darkTheme = {
   text: '#ffffff',
   primary: '#00bfff',
   secondary: '#00bfff',
+  cardBackground: '#666',
+  statusCancel: '#ff0000',
+  statusOk: '#32cd32',
+  statusOnWay: '#fff000'
 }
