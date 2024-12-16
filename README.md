@@ -26,16 +26,16 @@
 
   
 2. **Entre na pasta do projeto**:
-   ```bash
+ 
  cd InfnetFood
 
   
 3. **Instale as dependências:**:
-   ```bash
+
   npm install
 
 4. **Inicie o projeto**:
-   ```bash
+
   npx expo start
 
 
