@@ -22,7 +22,8 @@
 
 1. **Clone este repositório**:
    ```bash
- git clone https://github.com/seuusuario/InfnetFood.git
+   git clone https://github.com/seuusuario/InfnetFood.git
+
 
 2. **entre na pasta do projeto:**:
  ```bash
